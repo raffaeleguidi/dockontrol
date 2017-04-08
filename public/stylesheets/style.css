@@ -1,0 +1,31 @@
+body {
+    padding: 20px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+table {
+    /*width: 100%;*/
+    border-left: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.number {
+    text-align: right;
+}
+td.short {
+    max-width: 150px;
+    overflow: hidden;
+}
+td {
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+}
+th {
+    background-color: lightgray;
+    padding: 5px;
+    text-align: left;
+}

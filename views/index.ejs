@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      <h1><%= title %></h1>
+      <hr />
+      <h2>Containers</h2>
+      <table>
+          <tr>
+              <th>Name</th>
+              <th>Image</th>
+              <th>Command</th>
+              <th class="number">Created</th>
+              <th>Status</th>
+              <th>Id</th>
+          </tr>
+          <%containers.forEach((container) => {%>
+          <tr>
+              <td><%=container.Names%></td>
+              <td><%=container.Image%></td>
+              <td class="short"><%=container.Command%></td>
+              <td><%=moment(container.Created*1000).format(sdf)%></td>
+              <td><%=container.Status%></td>
+              <td><%=shorten(container.Id, 10)%></td>
+          </tr>
+          <%})%>
+      </table>
+      <h2>Images</h2>
+      <table>
+          <tr>
+              <th>Tag</th>
+              <th class="number">Created</th>
+              <th class="number">Virtual size</th>
+              <th>Id</th>
+          </tr>
+          <%images.forEach((image) => {%>
+          <tr>
+              <td><%=image.RepoTags%></td>
+              <td><%=moment(image.Created*1000).format(sdf)%></td>
+              <td class="number"><%=(image.VirtualSize/1024/1024).toFixed(0)%> mb</td>
+              <td><%=shorten(image.Id, 10)%></td>
+          </tr>
+          <%})%>
+      </table>
+  </body>
+</html>
