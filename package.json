@@ -14,8 +14,10 @@
     "ejs": "~2.5.6",
     "express": "~4.15.2",
     "express-lru": "^1.0.0",
+    "express-ws": "^3.0.0",
     "moment": "^2.18.1",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "socket.io": "^1.7.3"
   }
 }

@@ -8,13 +8,6 @@ var app = require('../app');
 var debug = require('debug')('dockontrol:server');
 var http = require('http');
 
-var moment = require('moment');
-app.locals.moment = moment; // this makes moment available as a variable in every EJS page
-app.locals.sdf = "YYYY/MM/DD";
-app.locals.shorten = (string, length) => {
-    return string.substr(0,length || 6);
-}
-
 /**
  * Get port from environment and store in Express.
  */
@@ -27,6 +20,13 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Setup WebSockets
+ */
+
+var io = require('socket.io')(server);
+require("../routes/events").init(io);
 
 /**
  * Listen on provided port, on all network interfaces.
